@@ -32,52 +32,72 @@ def parse_markdown(md_bestand):
 
 
 def site_generator():
-    for folder in [
-        "pages",
-        "posts",
-    ]:  # Loopt door de lijst zodat statische pagina's en blogposts verwerkt worden.
-        # Bron: https://www.geeksforgeeks.org/python-loop-through-folders-and-files-in-directory/
+    """
+    Deze functie genereert een statische website uit Markdown-bestanden.
+    Het leest YAML-front-matter voor metadata en zet de inhoud om naar HTML.
+    Ook maakt het een navigatiemenu op basis van pagina's met 'menu: true'.
+    """
+
+    navigatie = []  # Lijst waarin de links voor de navigatiebalk worden opgeslagen
+
+    # Eerste loop: Verzamel alle pagina's die in de navigatiebalk moeten komen
+    for folder in ["pages", "posts"]:  # Doorloopt beide mappen met inhoud
         for files in os.listdir(
             folder
-        ):  # Haalt een lijst op van alle bestanden in de huidige folder.
-            if files.endswith(".md"):  # Controleert of een bestand eindigt op .md
-                md_files = os.path.join(folder, files)  # Maakt een pad naar het bestand
+        ):  # Haalt een lijst op van alle bestanden in de map
+            if files.endswith(
+                ".md"
+            ):  # Controleert of het bestand een Markdown-bestand is
+                md_files = os.path.join(folder, files)  # Pad naar het bestand opbouwen
                 yaml_data, markdown_body = parse_markdown(
                     md_files
-                )  # Gebruikt vorige functie om de YAML en Markdown te parsen.
-                layout = yaml_data.get(
-                    "layout"
-                )  # Haalt de layout op uit het YAML-bestand.
-                template = env.get_template(
-                    layout
-                )  # Laadt het basis Jinja-template in.
-                # Bron: https://jinja.palletsprojects.com/en/3.0.x/templates/#
+                )  # Haalt metadata en content op
+
+                # Als het 'menu' attribuut in de front-matter staat, voeg het toe aan de navigatie
+                if yaml_data.get("menu"):
+                    navigatie.append(
+                        {
+                            "title": yaml_data["title"],  # Titel van de pagina
+                            "url": files.replace(
+                                ".md", ".html"
+                            ),  # Verander bestandsnaam naar .html
+                        }
+                    )
+
+    # Tweede loop: Genereer de HTML-pagina’s en voeg de navigatie toe
+    for folder in ["pages", "posts"]:
+        for files in os.listdir(folder):
+            if files.endswith(".md"):
+                md_files = os.path.join(folder, files)
+                yaml_data, markdown_body = parse_markdown(
+                    md_files
+                )  # Markdown en YAML verwerken
+                layout = yaml_data.get("layout")  # Welke template wordt gebruikt?
+                template = env.get_template(layout)  # Laad de juiste Jinja2-template
 
                 html_content = markdown.markdown(
                     markdown_body
                 )  # Zet Markdown om naar HTML
-                # Bron: https://python-markdown.github.io/
-
                 volledige_pagina = template.render(
-                    yaml_data, content=html_content
-                )  # Render de HTML-pagina met Jinja2
+                    yaml_data, content=html_content, navigation=navigatie
+                )  # Vul de template met de inhoud en navigatie
 
-                output_folder = "_site"  # Output directory voor gegenereerde bestanden
+                output_folder = (
+                    "_site"  # Map waarin de gegenereerde bestanden worden opgeslagen
+                )
                 os.makedirs(
                     output_folder, exist_ok=True
-                )  # Maak directory aan indien deze niet bestaat
+                )  # Maak de map aan als die niet bestaat
                 output_path = os.path.join(
                     output_folder, files.replace(".md", ".html")
-                )  # Zet de extensie om naar .html
+                )  # Output-bestandspad
 
-                output_file = open(
-                    output_path, "w"
-                )  # Open het outputbestand in schrijfmodus
-                output_file.write(
-                    volledige_pagina
-                )  # Schrijf de gegenereerde HTML naar het bestand
-                print(f"Gegenereerd: {output_path}")  # Geef een melding in de terminal
+                # Schrijf de HTML naar een bestand
+                with open(output_path, "w") as output_file:
+                    output_file.write(volledige_pagina)
+
+                print(f"Gegenereerd: {output_path}")  # Bevestiging in de terminal
 
 
 if __name__ == "__main__":
-    site_generator()  # Start de site generator
+    site_generator()

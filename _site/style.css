@@ -1,36 +1,66 @@
-body > header{
-  text-transform: uppercase;
-  padding: 0rem 1rem 0rem 1rem;
-  border-bottom: 2px solid;
-  color: #c0ff33;
-  text-shadow: 0 0 10px #c0ff33, 0 0 20px #c0ff33, 0 0 40px #c0ff33;
-
-}
-
 body{
   background-color: rgb(42, 45, 51);
-  color:aqua;
-  font-family: Arial, Helvetica, sans-serif;
-  height: 100vh;
+  color: rgb(183, 197, 209);
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a{
+  color: rgb(106, 22, 184);
+}
+
+header{
+  border-bottom: 2px solid rgb(71, 69, 69);
+  margin: 0 1rem 0 1rem;
+}
+
+
+header > h2{
+  display: inline-block;
+  text-transform: capitalize;
+}
+
+header > nav{
+  display: inline-block;
+} 
+
+header nav ul{
+  display: flex;
+  gap: 1.5rem;
+  position: absolute;
+  right: 1.3rem;
+  top: 0.5rem;
+}
+
+header nav ul li{
+  list-style: none;
+}
+
+header nav ul li a{
+  text-decoration: none;
+  text-transform: capitalize;
+}
+header nav ul li a:hover{
+  color: rgb(183, 197, 209);
 }
 
 main{
-  padding: 1rem;
+  padding: 1rem 1rem 1rem 1rem;
+}
+main p{
+  padding-bottom: 1rem;
 }
 
-main > h1{
-  color:rgb(132, 243, 14);
-}
-
-h2{
-  color:rgb(132, 243, 14);
+main a {
+  color: aqua;
 }
 
 footer{
-  padding: 1rem 1rem 0rem 1rem;
-  color: rgb(254, 78, 34);
-} 
-
-a{
-  color: rgb(254, 78, 34);
+  border-top: 2px solid rgb(71, 69, 69);
+  padding: 0 1rem 0.1rem 1rem;
+  margin-top:auto ;
+  font-size: 0.8rem;
 }

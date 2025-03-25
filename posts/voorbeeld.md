@@ -1,31 +1,32 @@
 ---
-title: voorbeeld
+title: Home
 layout: "basic.html"
+menu: true
 ---
 
-## Dit is een voorbeeld van een statische site.
+## Welkom op de Homepagina van onze Statische Website
 
-### en dit is een h3!
+### Dit project maakt het eenvoudig om Markdown-bestanden automatisch om te zetten naar HTML, zodat je snel en efficiënt webpagina's kunt genereren.
 
-El Tratado de Versalles fue un tratado de paz que se firmó en la Sala de los Espejos del Palacio de Versalles en Francia al final de la Primera Guerra Mundial por más de cincuenta países. Este tratado puso fin a lo que sería "la última guerra", trató de limitar futuras aventuras militares por parte de Alemania. Terminó oficialmente con el estado de guerra entre el Imperio alemán y los Aliados de la Primera Guerra Mundial. Fue firmado el 28 de junio de 1919 en la Galería de los Espejos del Palacio de Versalles.
+### Hoe werkt het?
 
-## dit is wederom een h2
+Upload simpelweg een Markdown-bestand met de juiste YAML-gegevens bovenaan, en ons Python-programma doet de rest! De inhoud wordt verwerkt, omgezet naar HTML en netjes weergegeven met behulp van templates.
 
-### dit is ook een h3
+Waarom deze tool?
 
-hier kan je ook tekst zetten!
+Automatische conversie van Markdown naar HTML
 
-Hier ook!
+Gebruik van Jinja2 voor flexibele en herbruikbare templates
 
-en hier ook!
+YAML-ondersteuning voor gestructureerde metadata
 
-## hier is nog een
+Ideaal voor blogs, documentatie en statische websites
 
-Je mag geen informatie achterhouden voor de overheid
-Als je informatie achterhoudt voor de overheid, kan ze haar werk niet goed doen. Heb je bijvoorbeeld recht op kinderbijslag? Dan moet je wel laten weten wat je gezinssituatie is.
+### Mogelijk gemaakt door:
 
-Je mag niet altijd weigeren om gegevens te delen
-Bestel je wel eens een pakje online? Dan moet je je adres doorgeven. Weigeren kan niet en heeft ook geen zin – of je kan lang wachten op je pakje. Je gegevens zijn wel enkel voor de bezorger bestemd, niet voor commerciële e-mails.
+Dit project gebruikt krachtige Python-bibliotheken zoals:
+Markdown – voor het verwerken van Markdown-bestanden
+Jinja2 – voor dynamische templating
+PyYAML – voor het inlezen van YAML-gegevens
 
-Gegevensbescherming is geen absoluut recht
-Gegevensbescherming is een fundamenteel recht, géén absoluut recht. Soms moet je dus nog andere rechten tegenover elkaar afwegen. Zo leiden het verbeteren van de veiligheid en de strijd tegen terrorisme en criminaliteit soms tot een beperking van het recht op gegevensbescherming. Maar natuurlijk enkel als dat nodig is en in verhouding staat tot het beoogde doel.
+Begin vandaag nog met het bouwen van je eigen statische website!
