@@ -4,15 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ title }}</title>
-    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="stylesheet" href="/_site/style.css" />
   </head>
   <body>
     <header>
-      <h1>{{ title }}</h1>
+      <h2>{{ title }}</h2>
     </header>
     <main>{{ content | safe }}</main>
     <footer>
-      <p>&copy; 2025 VR0EM static site generator</p>
+      <p>
+        &copy; 2025 VR0EM static-site-generator
+        <a href="https://github.com/VR0EM"> bezoek</a> mijn github pagina
+      </p>
     </footer>
   </body>
 </html>

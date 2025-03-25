@@ -1,3 +1,36 @@
-h1 {
-  color: red;
+body > header{
+  text-transform: uppercase;
+  padding: 0rem 1rem 0rem 1rem;
+  border-bottom: 2px solid;
+  color: #c0ff33;
+  text-shadow: 0 0 10px #c0ff33, 0 0 20px #c0ff33, 0 0 40px #c0ff33;
+
+}
+
+body{
+  background-color: rgb(42, 45, 51);
+  color:aqua;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+}
+
+main{
+  padding: 1rem;
+}
+
+main > h1{
+  color:rgb(132, 243, 14);
+}
+
+h2{
+  color:rgb(132, 243, 14);
+}
+
+footer{
+  padding: 1rem 1rem 0rem 1rem;
+  color: rgb(254, 78, 34);
+} 
+
+a{
+  color: rgb(254, 78, 34);
 }
